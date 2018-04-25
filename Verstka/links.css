@@ -22,3 +22,8 @@ p {
     color: #27fdff;
     text-decoration: #ff00ea;
 }
+
+.border {
+    border: 1px dotted #3f09a7;
+    border-bottom: 2px dashed #e4001f
+}
