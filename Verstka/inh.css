@@ -1,5 +1,27 @@
 body {
-    color: #262626;
+    color: #dfcc1a;
     font: 14px/1.5 Arial, Verdana, Tahoma, sans-serif ;
+    background: #df0a00;
+
+}
+
+ol {
+    color: #e40024;
+    background: #0A3737;
+
+}
+
+li {
+    color: rgba(85,83,78,0.54);
+
+}
+
+.someClass {
+    color: rgba(228,204,25,0.54);
+
+}
+
+#someID {
+    color:#0018ff;
 
 }

@@ -2,6 +2,7 @@ a:link {
     color: #5367ff;
 
 }
+
 a:visited {
     color: #1fff00
 
@@ -21,9 +22,10 @@ a:active {
 p {
     color: #27fdff;
     text-decoration: #ff00ea;
+
 }
 
 .border {
     border: 1px dotted #3f09a7;
-    border-bottom: 2px dashed #e4001f
+
 }
