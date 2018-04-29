@@ -1,27 +1,17 @@
-body {
-    color: #dfcc1a;
-    font: 14px/1.5 Arial, Verdana, Tahoma, sans-serif ;
-    background: #df0a00;
+header {
+    border: 2px solid  #df8200;
 
 }
 
-ol {
-    color: #e40024;
-    background: #0A3737;
+a:hover {
+    border: 15px solid #90df3a;
 
 }
 
-li {
-    color: rgba(85,83,78,0.54);
-
-}
-
-.someClass {
-    color: rgba(228,204,25,0.54);
-
-}
-
-#someID {
-    color:#0018ff;
+#content {
+    margin: 2px auto;
+    width: 1000px;
+    border: 40px solid #df0042;
+    padding: 10px auto;
 
 }
