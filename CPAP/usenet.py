@@ -5,14 +5,6 @@ import threading
 from nntplib import NNTP
 
 
-servers = [
-    'news.alaska-software.com',
-    'news.annexcafe.com',
-    'news.asp-shareware.org',
-    'news.1000years.com'
-]
-
-
 def main_func(year):
     nntp = NNTP('news.alaska-software.com')
     print(year)
