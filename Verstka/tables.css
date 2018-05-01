@@ -1,0 +1,27 @@
+table {
+    width: 650px;
+    border: 1px dashed #00ccff;
+    border-collapse: collapse;
+    color: rgba(9,223,27,0.29);
+    margin: 100px auto;
+
+}
+
+td, th {
+    border: 1px solid #12ff07;
+    height: 50px;
+
+}
+
+th {
+    background: rgba(99, 106, 102, 0.36);
+    color: rgba(130,123,141,0.34);
+
+}
+
+.left-column {
+    text-align: center;
+    padding: auto auto auto 50px;
+    border: 5px solid rgba(223,0,66,0.29)
+
+}

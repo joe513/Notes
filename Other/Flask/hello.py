@@ -1,12 +1,19 @@
-from flask import Flask
-app = Flask(__name__)
+import flask
 
 
-@app.route('/<variable>')
-def hello_world(variable):
-    return 'Hello world! This is %s' % variable
+app = flask.Flask(__name__)
+
+
+@app.route('/')
+@app.route('/<variable>', methods=['GET', 'POST'])
+def hello_world(variable=None):
+    return flask.render_template('hello.html')
 
 
 @app.route('/<int:number>')
 def square(number):
     return '%d' % number ** 2
+
+
+with app.test_request_context():
+    print(flask.url_for('hello_world', variable='Bob'))
