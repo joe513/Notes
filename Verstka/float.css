@@ -1,0 +1,48 @@
+#author  {
+    float: left
+
+}
+
+.container {
+    margin: 0;
+    padding: 100px;
+    border: 10px solid #83afff;
+
+}
+
+#wrapper {
+    width: 900px;
+    border: 1px solid #dbdbdb;
+    padding: 10px;
+    margin: 10px auto;
+
+}
+
+#header {
+    height: 100px;
+    background: #4d7d90;
+    margin-bottom: 10px;
+
+}
+
+#sidebar {
+    height: 400px;
+    background: #8a999f;
+    width: 200px;
+    float: left;
+
+}
+
+#content {
+    height: 400px;
+    background: #c7d4d9;
+    width: 690px;
+    margin-left: 210px;
+
+}
+
+#footer {
+    height: 100px;
+    margin-top: 10px;
+
+}
