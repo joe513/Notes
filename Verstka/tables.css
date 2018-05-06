@@ -4,6 +4,7 @@ table {
     border-collapse: collapse;
     color: rgba(9,223,27,0.29);
     margin: 100px auto;
+    display: block;
 
 }
 
