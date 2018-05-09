@@ -1,6 +1,7 @@
 body {
     font: 12px Arial, Verdana, Tahoma, sans-serif;
     color: #5d5d5d;
+    margin: 0;
 
 }
 
@@ -53,4 +54,42 @@ a:hover {
     border-bottom: 1px solid #c0c0c0;
     overflow: hidden;
 
+}
+
+#header-image {
+    height: 380px;
+    background: url(./img01.jpg) no-repeat;
+    margin-top: 20px;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+#black-box {
+    width: 443px;
+    height: 43px;
+    background: #090909;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: #999898;
+    position: absolute;
+    left: 35px;
+    bottom: 45px;
+
+}
+
+#black-box p {
+    margin: 14px 12px;
+    line-height: 1;
+
+}
+
+#black-box a {
+    float: right;
+
+}
+
+#black-box a:hover {
+    color: #fe9b00;
 }
