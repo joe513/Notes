@@ -33,7 +33,7 @@ class Snippet(models.Model):
                                   full=True, **options)
         self.highlighted = highlight(self.code, lexer, formatter)
         super(Snippet, self).save(force_insert=False, force_update=False, using=None,
-             update_fields=None)
+                                  update_fields=None)
 
     class Meta:
         ordering = ('created', )
