@@ -1,6 +1,5 @@
 import flask
 
-
 app = flask.Flask(__name__)
 
 
@@ -17,3 +16,7 @@ def square(number):
 
 with app.test_request_context():
     print(flask.url_for('hello_world', variable='Bob'))
+
+
+if __name__ == '__main__':
+    app.run('localhost', 8080, debug=True)
