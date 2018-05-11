@@ -1,15 +1,10 @@
-from django.urls import path, include
+from django.urls import path
+from rest_framework.schemas import get_schema_view
 
-from rest_framework.routers import DefaultRouter
 
-from snippets import views
-
-router = DefaultRouter()
-
-router.register('snippets', views.SnippetViewSet)
-router.register('users', views.UserViewSet)
+schema_view = get_schema_view(title='Pastebin API')
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('schema/', schema_view),
 
 ]
