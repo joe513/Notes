@@ -1,5 +1,5 @@
 body {
-    font: 12px Arial, Verdana, Tahoma, sans-serif;
+    font: 12px/1.6 Arial, Verdana, Tahoma, sans-serif;
     color: #5d5d5d;
     margin: 0;
 
@@ -92,4 +92,47 @@ a:hover {
 
 #black-box a:hover {
     color: #fe9b00;
+
+}
+
+.content-box-za {
+    width: 285px;
+    float: left;
+    margin-right: 52px;
+
+}
+
+#content {
+    margin-top: 20px;
+
+}
+
+#personal-d {
+    margin-right: 0;
+
+}
+
+.content-box-za h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #090909;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    border-bottom: 5px solid #090909;
+    background: url(../imgs/e88531dbf0cf81f4eacba773aa4bb9b0.jpg) no-repeat 0 9px;
+    margin-bottom: 16px;
+
+}
+
+.content-box ul li {
+    background: url(../imgs/download.png) no-repeat;
+
+}
+
+.portfolio-image {
+    float: left;
+    margin-left: 25px;
+    border: 3px solid #3A7734;
+
+
 }
