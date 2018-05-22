@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+from rest_framework.parsers import JSONParser, ParseError
 from rest_framework import status
 
 from toys.models import Toy
@@ -47,8 +47,13 @@ def toy_detail(request, pk):
         return JSONResponse(toy_serializer.data)
 
     if request.method == 'PUT':
-        toy_data = JSONParser().parse(request)
+        try:
+            toy_data = JSONParser().parse(request)
+        except ParseError:
+            return JSONResponse(status=status.HTTP_400_BAD_REQUEST, data='Please enter JSON values')
+
         toy_serializer = ToySerializer(toy, data=toy_data)
+
         if toy_serializer.is_valid():
             toy_serializer.save()
             return JSONResponse(toy_serializer.data)
