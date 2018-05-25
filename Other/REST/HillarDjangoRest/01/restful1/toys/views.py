@@ -1,64 +1,44 @@
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser, ParseError
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from rest_framework import status
 
 from toys.models import Toy
 from toys.serializers import ToySerializer
 
 
-class JSONResponse(HttpResponse):
-
-    def __init__(self, data, **kwargs):
-        content = JSONRenderer().render(data)
-        kwargs['content_type'] = 'application/json'
-        super(JSONResponse, self).__init__(content, **kwargs)
-
-
-@csrf_exempt
+@api_view(['GET', 'POST'])
 def toy_list(request):
-
     if request.method == 'GET':
         toys = Toy.objects.all()
-        toys_serializer = ToySerializer(toys, many=True)  # Write many=True in case if you want to return many instances
-        return JSONResponse(toys_serializer.data)
+        toys_serializer = ToySerializer(toys, many=True)
+        return Response(toys_serializer.data)
 
-    if request.method == 'POST':
-        toy_data = JSONParser().parse(request)
-        toys_serializer = ToySerializer(data=toy_data)  # Note we haven't specified many=True we use single one.
-
+    elif request.method == 'POST':
+        toys_serializer = ToySerializer(data=request.data)
         if toys_serializer.is_valid():
             toys_serializer.save()
-            return JSONResponse(toys_serializer.data, status=status.HTTP_201_CREATED)
-        return JSONResponse(toys_serializer.data, status=status.HTTP_400_BAD_REQUEST)
+            return Response(toys_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(toys_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@csrf_exempt
+@api_view(['GET', 'PUT', 'DELETE'])
 def toy_detail(request, pk):
     try:
         toy = Toy.objects.get(pk=pk)
     except Toy.DoesNotExist:
-        return HttpResponse(status=status.HTTP_404_NOT_FOUND)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         toy_serializer = ToySerializer(toy)
-        return JSONResponse(toy_serializer.data)
+        return Response(toy_serializer.data)
 
-    if request.method == 'PUT':
-        try:
-            toy_data = JSONParser().parse(request)
-        except ParseError:
-            return JSONResponse(status=status.HTTP_400_BAD_REQUEST, data='Please enter JSON values')
-
-        toy_serializer = ToySerializer(toy, data=toy_data)
-
+    elif request.method == 'PUT':
+        toy_serializer = ToySerializer(toy, data=request.data)
         if toy_serializer.is_valid():
             toy_serializer.save()
-            return JSONResponse(toy_serializer.data)
-        return JSONResponse(toy_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(toy_serializer.data)
+        return Response(toy_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    if request.method == 'DELETE':
+    elif request.method == 'DELETE':
         toy.delete()
-        return HttpResponse(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)
